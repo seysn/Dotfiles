@@ -29,6 +29,7 @@ alias ll='ls -lh --color=auto'
 alias df="df -h"
 alias color='export COLOR=--color'
 alias nocolor='export COLOR='
+alias feh='feh -F'
 alias subl='subl3'
 alias subl2='/home/seysn/SublimeText2/sublime_text 2>/dev/null'
 alias ssubl='sudo /home/seysn/SublimeText2/sublime_text'
@@ -41,10 +42,21 @@ lumi () {
 	current=$(xrandr --verbose | grep -i brightness | cut -f2 -d ' ')
 	if test "x$1" = "x"; then
 		xrandr --output eDP1 --brightness 1
-	# elif test "x$1" = "x-p" && test $(echo $current * 100 | bc) -le 100; then
-		# 	xrandr --output eDP1 --brightness $(echo $current + 0.05 | bc)
-	# elif test "x$1" = "x-m" && test $(echo $current * 100 | bc) -ge 0; then
-		# 	xrandr --output eDP1 --brightness $(echo $current - 0.05 | bc)
+	# elif test "x$1" = "x-p"; then
+	# 	new=$($current + 0.05)
+	# 	echo "new" $new
+	# 	if [[ new -gt 1 ]]; then
+	# 		xrandr --output eDP1 --brightness 1
+	# 	else
+	# 		xrandr --output eDP1 --brightness $new
+	# 	fi
+	# elif test "x$1" = "x-m"; then
+	# 	new=$($current - 0.05)
+	# 	if [[ new -lt 0 ]]; then
+	# 		xrandr --output eDP1 --brightness 0
+	# 	else
+	# 		xrandr --output eDP1 --brightness $new
+	# 	fi
 	elif test "$1" -ge 0 && test "$1" -le 100; then
 		xrandr --output eDP1 --brightness $(echo "scale=2; ($1/100)" | bc)
 	else
@@ -80,8 +92,8 @@ ex () {
 			*)           echo "'$1' cannot be extracted via ex()" ;;
 		esac
 	else
-	echo "'$1' is not a valid file"
-fi
+		echo "'$1' is not a valid file"
+	fi
 }
 
 # load other alias and functions
