@@ -14,7 +14,7 @@ umask 022
 setxkbmap fr
 
 # path
-export PATH=${HOME}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/binx:/sbin:/bin:/usr/bin/X11:${PATH}
+export PATH=${HOME}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/binx:/sbin:/bin:/home/seysn/scripts:/usr/bin/X11:${PATH}
 
 # avoid errors
 alias cp='cp -i'
@@ -36,42 +36,6 @@ alias ssubl='sudo /home/seysn/SublimeText2/sublime_text'
 alias idea="/home/seysn/Documents/idea-IU-141.178.9/bin/idea.sh"
 alias androidstudio="/home/seysn/Documents/android-studio/bin/studio.sh"
 alias netbeans="/home/seysn/Documents/netbeans-8.0.2/bin/netbeans"
-
-# set lumi screen
-lumi () {
-	current=$(xrandr --verbose | grep -i brightness | cut -f2 -d ' ')
-	if test "x$1" = "x"; then
-		xrandr --output eDP1 --brightness 1
-	# elif test "x$1" = "x-p"; then
-	# 	new=$($current + 0.05)
-	# 	echo "new" $new
-	# 	if [[ new -gt 1 ]]; then
-	# 		xrandr --output eDP1 --brightness 1
-	# 	else
-	# 		xrandr --output eDP1 --brightness $new
-	# 	fi
-	# elif test "x$1" = "x-m"; then
-	# 	new=$($current - 0.05)
-	# 	if [[ new -lt 0 ]]; then
-	# 		xrandr --output eDP1 --brightness 0
-	# 	else
-	# 		xrandr --output eDP1 --brightness $new
-	# 	fi
-	elif test "$1" -ge 0 && test "$1" -le 100; then
-		xrandr --output eDP1 --brightness $(echo "scale=2; ($1/100)" | bc)
-	else
-		echo "Erreur de syntaxe"
-	fi
-}
-
-# lockscreen
-lock () {
-	sleep 1
-	scrot /tmp/screen.png
-	convert /tmp/screen.png -scale 10% -scale 1000% /tmp/screen.png
-	[[ -f /home/user/images/icons/lock-icon.png ]] && convert /tmp/screen.png /home/user/images/icons/lock-icon-1.png -gravity center -composite -matte /tmp/screen.png
-	i3lock -i /tmp/screen.png
-}
 
 # ex - archive extractor
 ex () {
