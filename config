@@ -105,38 +105,40 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# Shutdown computer
+bindsym $mod+Escape exec "i3-nagbar -t warning -m 'Do you really want to poweroff ?' -b 'Yes' 'poweroff'"
 
 mode "resize" {
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
-        
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
 
 bar {
-        status_command i3status
-        colors {
-                background #222222
-                separator  #222222
-                statusline #ffffff
+    status_command i3status
+    colors {
+        background #222222
+        separator  #222222
+        statusline #ffffff
 
-                #color             border  backgr. text
-                focused_workspace  #222222 #222222 #bbddee
-                active_workspace   #222222 #222222 #ffffff
-                inactive_workspace #222222 #222222 #666666
-                urgent_workspace   #2f343a #900000 #ffffff
-        }
+        #color             border  backgr. text
+        focused_workspace  #222222 #222222 #bbddee
+        active_workspace   #222222 #222222 #ffffff
+        inactive_workspace #222222 #222222 #666666
+        urgent_workspace   #2f343a #900000 #ffffff
+    }
 }
 
 #frame color            border  backgr. text    indic.
@@ -160,3 +162,18 @@ bindsym --release Print exec --no-startup-id scrot -e 'mv $f ~/Pictures/screensh
 
 # Wallpaper
 exec feh --bg-scale ~/Pictures/INSTANT_JOY.png 2>/dev/null
+
+# Lumi Binds
+bindsym $mod+F5 exec --no-startup-id ~/scripts/lumi -m
+bindsym $mod+F6 exec --no-startup-id ~/scripts/lumi -p
+bindsym $mod+F7 exec --no-startup-id ~/scripts/lumi -t
+
+# Volume Binds (sans Fn)
+bindsym $mod+F12 exec amixer -q set Master 2dB+ unmute
+bindsym $mod+F11 exec amixer -q set Master 2dB- unmute
+bindsym $mod+F10 exec amixer -q set Master toggle
+
+# Volume Binds (avec Fn)
+# bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
+# bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
+# bindsym XF86AudioMute exec amixer -q set Master toggle
