@@ -14,7 +14,7 @@
 set $mod Mod4
 
 # font for window titles
-font pango:gohufont 9
+font pango:gohufont 7
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -142,7 +142,7 @@ bar {
 }
 
 #frame color            border  backgr. text    indic.
-client.focused          #2F2F4F #2F2F4F #ffffff #2F2F4F
+client.focused          #2b303b #2b303b #ffffff #2b303b
 client.focused_inactive #111111 #111111 #888888 #111111
 client.unfocused        #111111 #111111 #888888 #111111
 client.urgent           #2f343a #900000 #ffffff #900000
