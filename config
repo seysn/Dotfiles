@@ -12,6 +12,7 @@
 
 # set the mod button (actually is Windows)
 set $mod Mod4
+set $alt Mod1
 
 # font for window titles
 font pango:gohufont 8
@@ -155,10 +156,14 @@ client.urgent           #2f343a #900000 #ffffff #900000
 # ---------------
 
 # Chromium
-bindsym $mod+n exec chromium
+bindsym $mod+Shift+n exec chromium
+bindsym $mod+n exec qutebrowser
 
 # Screenshot
 bindsym --release Print exec --no-startup-id scrot -e 'mv $f ~/Pictures/screenshots'
+
+# Lock
+bindsym $mod+$alt+l exec --no-startup-id ~/scripts/lock
 
 # Wallpaper
 exec feh --bg-scale ~/Pictures/INSTANT_JOY.png 2>/dev/null
