@@ -29,9 +29,9 @@ alias mv='mv -i'
 
 # some shortcuts
 alias git='LANG=en_GB git'
-alias ls='ls -h --color=auto'
-alias la='ls -alh --color=auto'
-alias ll='ls -lh --color=auto'
+alias ls='ls -hF'
+alias la='ls -alhF'
+alias ll='ls -lhF'
 alias df="df -h"
 alias color='export COLOR=--color'
 alias nocolor='export COLOR='

@@ -3,6 +3,7 @@
 !URxvt*font: 			xft:gohufont:pixelsize=20
 !URxvt.letterSpace: 	-1
 !URxvt*transparent:		true
+!URxvt.font:            vixft:tewi
 URxvt*font: 			xft:Terminess Powerline:pixelsize=15
 URxvt*depth:       		32
 URxvt*shading: 			15
@@ -10,43 +11,46 @@ URxvt*borderless: 		1
 URxvt*scrollBar:    	false
 URxvt*saveLines:  		5000
 URxvt*termName:    		rxvt-unicode
+URxvt.iso14755: 		false
+URxvt.iso14755_52: 		false
 
 /* COLORS */
 
-*foreground: 			rgb:a8/a8/a8
-*background: 			rgb:00/00/00
-
+*.foreground:   		#e8dfd6
+*.background:   		#000000
+ 
 ! BLACK
-*color0: 				rgb:00/00/00
-*color8:				rgb:54/54/54
-
+*.color0:       		#000000
+*.color8:       		#000000
+ 
 ! RED
-*color1: 				rgb:fc/54/54
-*color9:				rgb:fc/54/54
-
+*.color1:       		#c2454e
+*.color9:       		#ef5847
+ 
 ! GREEN
-*color2: 				rgb:54/fc/54
-*color10:				rgb:54/fc/54
-
+*.color2:       		#7cbf9e
+*.color10:      		#a2d9b1
+ 
 ! YELLOW
-*color3: 				rgb:fc/fc/54
-*color11:				rgb:fc/fc/54
-
+*.color3:       		#8a7a63
+*.color11:      		#beb090
+ 
 ! BLUE
-*color4: 				rgb:54/54/fc
-*color12:				rgb:54/54/fc
-
+*.color4:       		#2e3340
+*.color12:      		#61778d
+ 
 ! MAGENTA
-*color5: 				rgb:fc/54/fc
-*color13:				rgb:fc/54/fc
-
+*.color5:       		#ff5879
+*.color13:      		#ff99a1
+ 
 ! CYAN
-*color6: 				rgb:00/a8/a8
-*color14:				rgb:54/fc/fc
-
+*.color6:       		#44b5b1
+*.color14:      		#9ed9d8
+ 
 ! WHITE
-*color7:				rgb:a8/a8/a8
-*color15:				rgb:fc/fc/fc
+*.color7:       		#f2f1b9
+*.color15:      		#f6f6c9
+
 
 
 /* OLD XTERM */
