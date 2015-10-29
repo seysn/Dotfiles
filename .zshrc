@@ -4,6 +4,9 @@ export ZSH=/home/seysn/.oh-my-zsh
 # Set name of the theme to load.
 ZSH_THEME="bullet-train"
 
+# Oh my zsh plugin
+source $ZSH/oh-my-zsh.sh
+
 # disable touchscreen
 xinput set-prop 'USBest Technology SiS HID Touch Controller' 'Device Enabled' 0
 
@@ -16,8 +19,14 @@ umask 022
 # keyboard Layout French
 setxkbmap fr
 
+# Powerline
+if [[ -r ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+    source ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+fi
+
 # path
-export PATH="/home/seysn/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/binx:/sbin:/bin:/home/seysn/scripts:/usr/bin/X11:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export PATH="/home/seysn/bin:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/binx:/sbin:/bin:/home/seysn/scripts:/usr/bin/X11:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export CLASSPATH=/home/seysn/apache-tomcat-8.0.27/lib/tomcat-api.jar:/home/seysn/apache-tomcat-8.0.27/lib/postgresql-9.4-1204.jdbc4.jar
 
 # editor
 export EDITOR='vim'
@@ -29,9 +38,6 @@ alias mv='mv -i'
 
 # some shortcuts
 alias git='LANG=en_GB git'
-alias ls='ls -hF'
-alias la='ls -alhF'
-alias ll='ls -lhF'
 alias df="df -h"
 alias color='export COLOR=--color'
 alias nocolor='export COLOR='
@@ -109,8 +115,6 @@ HIST_STAMPS="dd/mm/yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8

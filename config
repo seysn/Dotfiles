@@ -14,8 +14,8 @@
 set $mod Mod4
 set $alt Mod1
 
-# font for window titles
 font pango:Tewi Regular 8
+# font for window titles
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
