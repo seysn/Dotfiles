@@ -1,11 +1,13 @@
 # Dotfiles
 
-OS: Arch Linux
+## Global Config
 
-WM: i3
+- OS: Arch Linux
+- WM: i3
+- Terminal Emulator: urxvt
+- GTK Theme: Numix-Blue [GTK2/3]
+- Icon Theme: Adwaita
 
-Terminal Emulator: urxvt
+## Notes
 
-GTK Theme: Numix-Blue [GTK2/3]
-
-Icon Theme: Adwaita
+- I'm not using bash and i3status anymore, but i keep them in this dotfiles.
