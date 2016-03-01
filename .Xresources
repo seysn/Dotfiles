@@ -1,11 +1,10 @@
 /* URXVT */
 
-!URxvt*font: 			xft:gohufont:pixelsize=20
+URxvt*font: 			xft:gohufont:pixelsize=20
 !URxvt.letterSpace: 	-1
 !URxvt*transparent:		true
 !URxvt.font:            vixft:tewi
-URxvt*font: 			xft:Terminess Powerline:pixelsize=15
-URxvt.letterSpace:      0
+!URxvt*font: 			xft:Terminess Powerline:pixelsize=15
 URxvt*depth:       		32
 URxvt*shading: 			15
 URxvt*borderless: 		1
@@ -22,7 +21,7 @@ URxvt.iso14755_52: 		false
  
 ! BLACK
 *.color0:       		#000000
-*.color8:       		#272822
+*.color8:       		#000000
  
 ! RED
 *.color1:       		#c2454e

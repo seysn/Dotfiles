@@ -14,8 +14,8 @@
 set $mod Mod4
 set $alt Mod1
 
-font pango:Tewi Regular 8
 # font for window titles
+font pango:Tewi Regular 8
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -27,7 +27,8 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec rofi -show run -font "snap 10" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -o 85
 
 # change focus
 bindsym $mod+h focus left
@@ -109,17 +110,18 @@ bindsym $mod+Shift+r restart
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # Shutdown computer
 bindsym $mod+Escape exec "i3-nagbar -t warning -m 'Do you really want to poweroff ?' -b 'Yes' 'poweroff'"
+bindsym XF86PowerOff exec "i3-nagbar -t warning -m 'Do you really want to poweroff ?' -b 'Yes' 'poweroff'"
 
 mode "resize" {
-    bindsym h resize shrink width 10 px or 10 ppt
-    bindsym j resize grow height 10 px or 10 ppt
-    bindsym k resize shrink height 10 px or 10 ppt
-    bindsym l resize grow width 10 px or 10 ppt
+    bindsym h resize shrink width 5 px or 5 ppt
+    bindsym j resize grow height 5 px or 5 ppt
+    bindsym k resize shrink height 5 px or 5 ppt
+    bindsym l resize grow width 5 px or 5 ppt
 
-    bindsym Left resize shrink width 10 px or 10 ppt
-    bindsym Down resize grow height 10 px or 10 ppt
-    bindsym Up resize shrink height 10 px or 10 ppt
-    bindsym Right resize grow width 10 px or 10 ppt
+    bindsym Left resize shrink width 5 px or 5 ppt
+    bindsym Down resize grow height 5 px or 5 ppt
+    bindsym Up resize shrink height 5 px or 5 ppt
+    bindsym Right resize grow width 5 px or 5 ppt
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -127,9 +129,23 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Browser launch
+set $browser "Browser : [c]hromium, [f]irefox, [q]utebrowser"
+mode $browser {
+    bindsym c exec chromium --proxy-auto-detect ; mode "default"
+    bindsym f exec firefox ; mode "default"
+    bindsym q exec qutebrowser ; mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+n mode $browser
+
 bar {
-    status_command i3status
-    colors {
+     status_command i3blocks
+     i3bar_command i3bar -t
+     colors {
         background #222222
         separator  #222222
         statusline #ffffff
@@ -138,8 +154,8 @@ bar {
         focused_workspace  #222222 #222222 #bbddee
         active_workspace   #222222 #222222 #ffffff
         inactive_workspace #222222 #222222 #666666
-        urgent_workspace   #2f343a #900000 #ffffff
-    }
+        urgent_workspace   #800000 #800000 #ffffff
+     }
 }
 
 #frame color            border  backgr. text    indic.
@@ -156,8 +172,8 @@ client.urgent           #2f343a #900000 #ffffff #900000
 # ---------------
 
 # Chromium
-bindsym $mod+Shift+n exec chromium
-bindsym $mod+n exec qutebrowser
+#bindsym $mod+Shift+n exec chromium --proxy-auto-detect
+#bindsym $mod+n exec qutebrowser
 
 # Screenshot
 bindsym --release Print exec --no-startup-id scrot -e 'mv $f ~/Pictures/screenshots'
@@ -169,16 +185,27 @@ bindsym $mod+$alt+l exec --no-startup-id ~/scripts/lock
 exec feh --bg-scale ~/Pictures/INSTANT_JOY.png 2>/dev/null
 
 # Lumi Binds
-bindsym $mod+F5 exec --no-startup-id ~/scripts/lumi -m
-bindsym $mod+F6 exec --no-startup-id ~/scripts/lumi -p
-bindsym $mod+F7 exec --no-startup-id ~/scripts/lumi -t
+#bindsym $mod+F5 exec --no-startup-id ~/scripts/lumi -m
+#bindsym $mod+F6 exec --no-startup-id ~/scripts/lumi -p
+#bindsym $mod+F7 exec --no-startup-id ~/scripts/lumi -t
+bindsym XF86MonBrightnessDown exec light -U 2
+bindsym XF86MonBrightnessUp exec light -A 2
+bindsym $mod+F5 exec light -U 10
+bindsym $mod+F6 exec light -A 10
 
 # Volume Binds (sans Fn)
-bindsym $mod+F12 exec amixer -q set Master 2dB+ unmute
-bindsym $mod+F11 exec amixer -q set Master 2dB- unmute
-bindsym $mod+F10 exec amixer -q set Master toggle
+bindsym $mod+F12 exec ~/scripts/change-vol.sh 5%+
+bindsym $mod+F11 exec ~/scripts/change-vol.sh 5%-
+bindsym $mod+F10 exec ~/scripts/change-vol.sh toggle
 
 # Volume Binds (avec Fn)
-# bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
-# bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
-# bindsym XF86AudioMute exec amixer -q set Master toggle
+bindsym XF86AudioRaiseVolume exec ~/scripts/change-vol.sh 5%+ unmute
+bindsym XF86AudioLowerVolume exec ~/scripts/change-vol.sh 5%- unmute
+bindsym XF86AudioMute exec ~/scripts/change-vol.sh toggle
+
+# Launch nm-applet at launch
+#exec --no-startup-id nm-applet
+
+# Sleep screen control
+exec xset -dpms
+exec xset s 1800
