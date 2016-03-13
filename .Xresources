@@ -1,6 +1,6 @@
 /* URXVT */
 
-URxvt*font: 			xft:gohufont:pixelsize=20
+URxvt*font: 			xft:gohufont
 !URxvt.letterSpace: 	-1
 !URxvt*transparent:		true
 !URxvt.font:            vixft:tewi

@@ -74,12 +74,14 @@ proxy_on () {
 	export https_proxy=https://proxy.univ-lille1.fr:3128;
 	echo "Proxy is ON"
 }
+alias pon='proxy_on'
 
 proxy_off () {
 	unset http_proxy
 	unset https_proxy
 	echo "Proxy is OFF"
 }
+alias poff='proxy_off'
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
