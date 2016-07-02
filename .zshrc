@@ -34,6 +34,7 @@ alias color='export COLOR=--color'
 alias nocolor='export COLOR='
 alias feh='feh -F'
 alias subl='subl3'
+alias rainbow='yes "$(seq 231 -1 16)" | while read i; do printf "\x1b[48;5;${i}m\n"; sleep .02; done'
 export VISUAL='vim'
 
 twitch () {
