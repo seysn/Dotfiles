@@ -1,14 +1,9 @@
-# Path to your oh-my-zsh installation.
-export ZSH=/home/seysn/.oh-my-zsh
-
-# Set name of the theme to load.
-ZSH_THEME="bira"
-
-# Oh My Zsh Plugin
-source $ZSH/oh-my-zsh.sh
+#
+# USER CONF
+#
 
 # Screenfetch
-screenfetch && echo
+#screenfetch && echo
 
 # mask rwxr-xr-x
 umask 022
@@ -17,7 +12,7 @@ umask 022
 #setxkbmap fr
 
 # Path
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export PATH="/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:${PATH}"
 
 # avoid errors
 alias cp='cp -i'
@@ -84,6 +79,16 @@ proxy_off () {
 }
 alias poff='proxy_off'
 
+#
+# OH MY ZSH CONF
+#
+
+# Path to your oh-my-zsh installation.
+export ZSH=/home/seysn/.oh-my-zsh
+
+# Set name of the theme to load.
+ZSH_THEME="newbira"
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -92,7 +97,7 @@ alias poff='proxy_off'
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -126,10 +131,12 @@ HIST_STAMPS="dd/mm/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git debian systemd)
 
 # User configuration
 # export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -155,3 +162,9 @@ plugins=(git)
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+#apt_pref='apt'
+
+# Disabling zsh autocorrection
+unsetopt correct_all
+

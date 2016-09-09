@@ -2,11 +2,11 @@
 
 ## Global Config
 
-- OS: Arch Linux
+- OS: Debian
 - WM: i3
 - Terminal Emulator: urxvt
-- GTK Theme: Numix-Blue [GTK2/3]
-- Icon Theme: Adwaita
+- GTK Theme: Mist [GTK2/3]
+- Icon Theme: Numix-Light
 
 ## Notes
 

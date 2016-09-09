@@ -3,10 +3,10 @@
 (load-theme 'monokai t)
 
 ;; Style code
-(load "~/.emacs.d/style/google-c-style.el")
+;;(load "~/.emacs.d/style/google-c-style.el")
 (global-linum-mode 1)
 (set-default 'truncate-lines t)
-(setq-default indent-tabs-mode nil)
+;;(setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq tab-width 4)
 (defvaralias 'c-basic-offset 'tab-width)
@@ -25,6 +25,16 @@
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
 (setq neo-smart-open t)
+(setq neo-theme 'ascii)
+
+;; Elpy packages
+;;(package-initialize)
+;;(elpy-enable)
+
+;; Anzu
+(add-to-list 'load-path "~/.emacs.d/elpa/anzu-0.22")
+(require 'anzu)
+(global-anzu-mode +1)
 
 ;;;
 ;;; Generated Options

@@ -143,7 +143,7 @@ mode $browser {
 bindsym $mod+n mode $browser
 
 bar {
-     status_command i3blocks
+     status_command i3blocks 
      #i3bar_command i3bar -t
      colors {
         background #222222
@@ -212,3 +212,6 @@ exec xset s 1800
 
 # Border window
 for_window[class="^.*"] border pixel 2
+
+# Redshift 
+exec redshift-gtk
