@@ -12,18 +12,12 @@ umask 022
 
 # Path
 export GOPATH="$HOME/.go"
-export PATH="$GOPATH/bin:/sbin:/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/seysn/Documents/Courses/ARO/ampl:${PATH}"
-
-# avoid errors
-alias cp='cp -i'
-alias rm='rm -i'
-alias mv='mv -i'
+export PATH="$GOPATH/bin:$HOME/.cabal/bin:/sbin:/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/seysn/Documents/Courses/ARO/ampl:${PATH}"
 
 # some shortcuts
+alias python="python3"
+alias pip="pip3"
 alias git='LANG=en_GB git'
-alias ls='ls -hF --color=auto'
-alias la='ls -alhF --color=auto'
-alias ll='ls -lhF --color=auto'
 alias df="df -h"
 alias color='export COLOR=--color'
 alias nocolor='export COLOR='
@@ -31,15 +25,17 @@ alias feh='feh -F'
 alias subl='subl3'
 alias rainbow='yes "$(seq 231 -1 16)" | while read i; do printf "\x1b[48;5;${i}m\n"; sleep .02; done'
 alias ping='ping -O'
-#alias steam='STEAM_RUNTIME=0 steam'
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+alias gas='/usr/bin/as'
 export VISUAL='vim'
 
 twitch () {
 	if [ -n "$1" ] ; then
 		if [ -n "$2" ] ; then
-			livestreamer --http-header Client-ID=jzkbprff40iqj646a697cyrvl0zt2m6 twitch.tv/$1 $2
+			streamlink twitch.tv/$1 $2
 		else
-			livestreamer --http-header Client-ID=jzkbprff40iqj646a697cyrvl0zt2m6 twitch.tv/$1 high
+			streamlink twitch.tv/$1 high
 		fi
 	fi
 }

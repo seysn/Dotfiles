@@ -21,8 +21,8 @@ URxvt.iso14755_52: 		false
 *.background:   		#000000
  
 ! BLACK
-*.color0:       		#000000
-*.color8:       		#000000
+*.color0:       		#073642
+*.color8:       		#002b36
  
 ! RED
 *.color1:       		#c2454e
