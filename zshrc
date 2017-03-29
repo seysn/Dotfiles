@@ -12,7 +12,7 @@ umask 022
 
 # Path
 export GOPATH="$HOME/.go"
-export PATH="$GOPATH/bin:$HOME/.cabal/bin:/sbin:/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/seysn/Documents/Courses/ARO/ampl:${PATH}"
+export PATH="$GOPATH/bin:$HOME/bin:/sbin:/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:${PATH}"
 
 # some shortcuts
 alias python="python3"
@@ -35,7 +35,7 @@ twitch () {
 		if [ -n "$2" ] ; then
 			streamlink twitch.tv/$1 $2
 		else
-			streamlink twitch.tv/$1 high
+			streamlink twitch.tv/$1 medium
 		fi
 	fi
 }
@@ -66,7 +66,6 @@ ex () {
 proxy_on () {
 	export http_proxy=http://proxy.univ-lille1.fr:3128;	
 	export https_proxy=https://proxy.univ-lille1.fr:3128;
-	echo "Acquire::http::Proxy \"http://proxy.univ-lille1.fr:3128\";" > /etc/apt/apt.conf.d/proxy
 	echo "Proxy is ON"
 }
 alias pon='proxy_on'
@@ -74,10 +73,12 @@ alias pon='proxy_on'
 proxy_off () {
 	unset http_proxy
 	unset https_proxy
-	echo "" > /etc/apt/apt.conf.d/proxy
 	echo "Proxy is OFF"
 }
 alias poff='proxy_off'
 
 # Disabling zsh autocorrection
 unsetopt correct_all
+
+# No more GUI for askpass
+unset SSH_ASKPASS

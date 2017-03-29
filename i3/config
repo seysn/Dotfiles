@@ -21,14 +21,15 @@ font pango:Tewi Regular 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec rofi -show run -font "snap 10" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -o 85
+#bindsym $mod+d exec rofi -show run -font "snap 10" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -o 8
+bindsym $mod+d exec rofi -show run
 
 # change focus
 bindsym $mod+h focus left
@@ -109,8 +110,8 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # Shutdown computer
-bindsym $mod+Escape exec "i3-nagbar -t warning -m 'Do you really want to poweroff ?' -b 'Yes' 'poweroff'"
-bindsym XF86PowerOff exec "i3-nagbar -t warning -m 'Do you really want to poweroff ?' -b 'Yes' 'poweroff'"
+#bindsym $mod+Escape exec "i3-nagbar -t warning -m 'Do you really want to poweroff ?' -b 'Yes' 'poweroff'"
+#bindsym XF86PowerOff exec "i3-nagbar -t warning -m 'Do you really want to poweroff ?' -b 'Yes' 'poweroff'"
 
 mode "resize" {
     bindsym h resize shrink width 5 px or 5 ppt
@@ -130,9 +131,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Browser launch
-set $browser "Browser : [c]hromium, [f]irefox, [q]utebrowser"
+set $browser "Browser : [c]hrome, [f]irefox, [q]utebrowser"
 mode $browser {
-    bindsym c exec chromium --proxy-auto-detect ; mode "default"
+    bindsym c exec google-chrome --proxy-auto-detect ; mode "default"
     bindsym f exec firefox ; mode "default"
     bindsym q exec qutebrowser ; mode "default"
 
@@ -184,14 +185,11 @@ bindsym $mod+$alt+l exec --no-startup-id ~/scripts/lock
 # Wallpaper
 exec feh --bg-scale ~/Pictures/INSTANT_JOY.png 2>/dev/null
 
-# Lumi Binds
-#bindsym $mod+F5 exec --no-startup-id ~/scripts/lumi -m
-#bindsym $mod+F6 exec --no-startup-id ~/scripts/lumi -p
-#bindsym $mod+F7 exec --no-startup-id ~/scripts/lumi -t
-bindsym XF86MonBrightnessDown exec light -U 2
-bindsym XF86MonBrightnessUp exec light -A 2
-bindsym $mod+F5 exec light -U 10
-bindsym $mod+F6 exec light -A 10
+# Backlight Binds
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym $mod+F5 exec xbacklight -dec 5
+bindsym $mod+F6 exec xbacklight -inc 5
 
 # Volume Binds (sans Fn)
 bindsym $mod+F12 exec ~/scripts/change-vol.sh 5%+
@@ -202,6 +200,9 @@ bindsym $mod+F10 exec ~/scripts/change-vol.sh toggle
 bindsym XF86AudioRaiseVolume exec ~/scripts/change-vol.sh 5%+ unmute
 bindsym XF86AudioLowerVolume exec ~/scripts/change-vol.sh 5%- unmute
 bindsym XF86AudioMute exec ~/scripts/change-vol.sh toggle
+
+# Touchpad toggle
+bindsym $mod+F9 exec ~/scripts/touchpad-toggle.sh
 
 # Launch nm-applet at launch
 #exec --no-startup-id nm-applet

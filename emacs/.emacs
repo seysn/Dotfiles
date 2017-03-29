@@ -1,5 +1,22 @@
-;; Remove that toolbar
-(tool-bar-mode -1)
+(add-to-list 'load-path "~/.emacs.d/conf")
+
+;; Better defaults library
+(require 'better-defaults)
+
+;; Proxy
+(setq url-proxy-services '(("no_proxy" . "^\\(localhost\\|10.*\\)")
+                           ("http" . "proxy.univ-lille1.fr:3128")))
+
+;; Remove toolbar and menubar
+;;(tool-bar-mode -1)
+;;(menu-bar-mode -1)
+
+;; Highlight current line
+(global-hl-line-mode t)
+(setq visible-bell nil)
+
+;; Make the y or n suffice for a yes or no question
+(fset 'yes-or-no-p 'y-or-n-p)
 
 ;; Monokai theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
@@ -21,11 +38,11 @@
 (setq inhibit-startup-message t)
 
 ;; Backups
-(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
-(setq delete-old-versions -1)
-(setq version-control t)
-(setq vc-make-backup-files t)
-(setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t)))
+;;(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+;;(setq delete-old-versions -1)
+;;(setq version-control t)
+;;(setq vc-make-backup-files t)
+;;(setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t)))
 
 ;; History file
 (setq savehist-file "~/.emacs.d/savehist")
@@ -72,7 +89,7 @@
    (quote
 	(("gnu" . "http://elpa.gnu.org/packages/")
 	 ("melpa" . "http://melpa.org/packages/"))))
- '(package-selected-packages (quote (go-mode anzu)))
+ '(package-selected-packages (quote (haskell-mode go-mode anzu)))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(size-indication-mode t)
@@ -96,3 +113,4 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Tamzen" :foundry "Misc" :slant normal :weight normal :height 120 :width normal))))
  '(whitespace-tab ((t (:foreground "#75715E" :weight bold)))))
+(put 'upcase-region 'disabled nil)
