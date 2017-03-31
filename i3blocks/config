@@ -38,7 +38,7 @@ separator_block_width=15
 #label=♪
 #instance=Master
 #instance=PCM
-command=$HOME/scripts/volume.sh
+command=$HOME/bin/volume.sh
 interval=once
 signal=10
 
@@ -74,7 +74,7 @@ signal=10
 label=
 #instance=wlan0
 #color=#00FF00
-command=$HOME/scripts/wifi.sh
+command=$HOME/bin/wifi.sh
 interval=10
 separator=false
 
@@ -85,7 +85,7 @@ separator=false
 
 [bandwidth]
 #instance=eth0
-command=$HOME/scripts/bandwidth
+command=$HOME/bin/bandwidth
 interval=5
 
 # CPU usage
@@ -108,7 +108,6 @@ interval=5
 #label=BAT
 label=⚡
 #instance=1
-command=/usr/share/i3blocks/battery
 interval=30
 
 # Date Time

@@ -2,7 +2,7 @@
 
 ## Global Config
 
-- OS: Debian
+- OS: Archlinux
 - WM: i3
 - Terminal Emulator: urxvt
 - GTK Theme: Mist [GTK2/3]

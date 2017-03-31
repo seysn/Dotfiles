@@ -131,9 +131,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Browser launch
-set $browser "Browser : [c]hrome, [f]irefox, [q]utebrowser"
+set $browser "Browser : [c]hromium, [f]irefox, [q]utebrowser"
 mode $browser {
-    bindsym c exec google-chrome --proxy-auto-detect ; mode "default"
+    bindsym c exec chromium --proxy-auto-detect ; mode "default"
     bindsym f exec firefox ; mode "default"
     bindsym q exec qutebrowser ; mode "default"
 
@@ -160,7 +160,7 @@ bar {
 }
 
 #frame color            border  backgr. text    indic.
-client.focused          #555555 #555555 #ffffff #555555
+client.focused          #666666 #666666 #ffffff #666666
 client.focused_inactive #111111 #111111 #888888 #111111
 client.unfocused        #111111 #111111 #888888 #111111
 client.urgent           #2f343a #900000 #ffffff #900000
@@ -192,17 +192,17 @@ bindsym $mod+F5 exec xbacklight -dec 5
 bindsym $mod+F6 exec xbacklight -inc 5
 
 # Volume Binds (sans Fn)
-bindsym $mod+F12 exec ~/scripts/change-vol.sh 5%+
-bindsym $mod+F11 exec ~/scripts/change-vol.sh 5%-
-bindsym $mod+F10 exec ~/scripts/change-vol.sh toggle
+bindsym $mod+F12 exec ~/bin/change-vol.sh 5%+
+bindsym $mod+F11 exec ~/bin/change-vol.sh 5%-
+bindsym $mod+F10 exec ~/bin/change-vol.sh toggle
 
 # Volume Binds (avec Fn)
-bindsym XF86AudioRaiseVolume exec ~/scripts/change-vol.sh 5%+ unmute
-bindsym XF86AudioLowerVolume exec ~/scripts/change-vol.sh 5%- unmute
-bindsym XF86AudioMute exec ~/scripts/change-vol.sh toggle
+bindsym XF86AudioRaiseVolume exec ~/bin/change-vol.sh 5%+ unmute
+bindsym XF86AudioLowerVolume exec ~/bin/change-vol.sh 5%- unmute
+bindsym XF86AudioMute exec ~/bin/change-vol.sh toggle
 
 # Touchpad toggle
-bindsym $mod+F9 exec ~/scripts/touchpad-toggle.sh
+bindsym $mod+F9 exec ~/bin/touchpad-toggle.sh
 
 # Launch nm-applet at launch
 #exec --no-startup-id nm-applet

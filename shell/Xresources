@@ -1,3 +1,11 @@
+Xft.dpi: 96
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
 /* URXVT */
 
 !URxvt*font: 			-*-tamzen-medium-*-*-*-16-*-*-*-*-*-*-*
@@ -6,8 +14,8 @@ URxvt*font: 			xft:tamzen-medium
 !URxvt*transparent:		true
 !URxvt.font:            vixft:tewi
 !URxvt*font: 			xft:Liberation Mono
-URxvt*depth:       		32
-URxvt*shading: 			15
+!URxvt*depth:       		32
+!URxvt*shading: 			15
 URxvt*borderless: 		1
 URxvt*scrollBar:    	false
 URxvt*saveLines:  		5000
