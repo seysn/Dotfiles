@@ -4,8 +4,8 @@
 (require 'better-defaults)
 
 ;; Proxy
-;;(setq url-proxy-services '(("no_proxy" . "^\\(localhost\\|10.*\\)")
-;;                           ("http" . "proxy.univ-lille1.fr:3128")))
+(setq url-proxy-services '(("no_proxy" . "^\\(localhost\\|10.*\\)")
+                           ("http" . "proxy.univ-lille1.fr:3128")))
 
 ;; Remove toolbar and menubar
 ;;(tool-bar-mode -1)
@@ -56,23 +56,20 @@
         regexp-search-ring))
 
 ;; Neotree
-;;(add-to-list 'load-path "~/.emacs.d/neotree")
-;;(require 'neotree)
-;;(global-set-key [f8] 'neotree-toggle)
-;;(setq neo-smart-open t)
-;;(setq neo-theme 'ascii)
+(add-to-list 'load-path "~/.emacs.d/neotree")
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
+(setq neo-smart-open t)
+(setq neo-theme 'ascii)
 
 ;; Elpy packages
 ;;(package-initialize)
 ;;(elpy-enable)
 
 ;; Anzu
-;; (add-to-list 'load-path "~/.emacs.d/elpa/anzu-0.22")
-;; (require 'anzu)
-;; (global-anzu-mode +1)
-
-;; Always follow symlinks
-(setq vc-follow-symlinks t)
+(add-to-list 'load-path "~/.emacs.d/elpa/anzu-0.22")
+(require 'anzu)
+(global-anzu-mode +1)
 
 ;;;
 ;;; Generated Options

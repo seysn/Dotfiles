@@ -9,17 +9,18 @@ Xft.rgba: rgb
 /* URXVT */
 
 !URxvt*font: 			-*-tamzen-medium-*-*-*-16-*-*-*-*-*-*-*
-URxvt*font: 			xft:tamzen-medium
-!URxvt.letterSpace: 	-1
+URxvt*font: 			xft:dina:size=8
+!URxvt.letterSpace: 	        -1
 !URxvt*transparent:		true
-!URxvt.font:            vixft:tewi
+!URxvt.font:                    vixft:tewi
 !URxvt*font: 			xft:Liberation Mono
 !URxvt*depth:       		32
-!URxvt*shading: 			15
+!URxvt*shading: 		15
 URxvt*borderless: 		1
-URxvt*scrollBar:    	false
+URxvt*scrollBar:    	        false
 URxvt*saveLines:  		5000
 URxvt*termName:    		rxvt-unicode
+Urxvt*buffered:                 false
 URxvt.iso14755: 		false
 URxvt.iso14755_52: 		false
 
