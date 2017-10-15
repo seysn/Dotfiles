@@ -15,23 +15,17 @@ export GOPATH="$HOME/.go"
 export PATH="$GOPATH/bin:$HOME/bin:/sbin:/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:${PATH}"
 
 # some shortcuts
-alias python="python3"
-alias pip="pip3"
 alias git='LANG=en_GB git'
 alias df="df -h"
-alias color='export COLOR=--color'
-alias nocolor='export COLOR='
 alias feh='feh -F'
-alias subl='subl3'
-alias rainbow='yes "$(seq 231 -1 16)" | while read i; do printf "\x1b[48;5;${i}m\n"; sleep .02; done'
 alias ping='ping -O'
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias gas='/usr/bin/as'
 alias wifi='nmcli radio wifi'
-alias emacs='emacsclient -c'
-alias e='emacsclient -t'
-alias ec='emacsclient -c'
+alias ed="emacs --daemon"
+alias e='emacsclient -c'
+alias et='emacsclient -t'
 export VISUAL='vim'
 
 twitch () {
