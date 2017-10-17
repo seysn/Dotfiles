@@ -184,7 +184,7 @@ client.urgent           #2f343a #900000 #ffffff #900000
 
 # ---------------
 #
-# NON-I3 STUFF
+# Binding & startup apps
 #
 # ---------------
 
@@ -218,7 +218,7 @@ bindsym XF86AudioLowerVolume exec ~/bin/change-vol.sh 5%- unmute
 bindsym XF86AudioMute exec ~/bin/change-vol.sh toggle
 
 # Touchpad toggle
-bindsym $mod+F9 exec ~/bin/touchpad-toggle.sh
+bindsym XF86TouchpadToggle exec ~/bin/touchpad-toggle.sh
 
 # Launch nm-applet at launch
 #exec --no-startup-id nm-applet
@@ -231,7 +231,7 @@ exec xset s 1800
 exec redshift-gtk
 
 # Polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Emacs
 exec --no-startup-id emacs --daemon
