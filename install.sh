@@ -74,11 +74,19 @@ install_polybar() {
     echo "Polybar conf installed"
 }
 
+install_redshift() {
+    which redshift >/dev/null || "redshift not found, don't forget to install it"
+    [ -e ~/.config/redshift.conf ] && mv ~/.config/redshift.conf backup/
+    $COPY_METHOD $(pwd)/redshift.conf ~/.config/redshift.conf
+    echo "Redshift conf installed"
+}
+
 confirm "Zsh comes with antigen. Install zsh conf ?" && install_zsh
 confirm "Emacs conf comes with Prelude. Install Prelude ?" && install_emacs
 confirm "Install i3 conf ?" && install_i3
 confirm "Install Xresources ?" && install_xresources
 confirm "Install fonts ?" && install_fonts
 confirm "Install polybar ?" && install_polybar
+confirm "Install redshift conf ?" && install_redshift
 
 rmdir backup 2>/dev/null
