@@ -71,6 +71,7 @@ install_polybar() {
     which polybar >/dev/null || echo "polybar not found, don't forget to install it"
     [ -e ~/.config/polybar/ ] && mv ~/.config/polybar/* backup
     $COPY_METHOD $(pwd)/polybar/config ~/.config/polybar/config
+    $COPY_METHOD $(pwd)/polybar/launch.sh ~/.config/polybar/launch.sh
     echo "Polybar conf installed"
 }
 
