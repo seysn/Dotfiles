@@ -11,3 +11,5 @@
 ## Notes
 
 - I'm not using bash and i3status anymore, but i keep them in this dotfiles.
+- For redshift, install python-gobject python-xdg packages
+- For vlc, install qt4 package

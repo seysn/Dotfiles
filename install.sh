@@ -1,6 +1,9 @@
 #!/bin/bash
 
 COPY_METHOD="ln -s"
+MISSING=()
+RST='\033[0m'
+CYAN='\033[0;36m'
 
 rmdir backup 2>/dev/null
 if [ -e backup ]
@@ -24,17 +27,17 @@ confirm() {
 }
 
 install_zsh() {
-    which zsh >/dev/null || "zsh not found, don't forget to install it"
+    which zsh >/dev/null || MISSING+=("zsh")
     [ -e ~/.zshrc ] && mv ~/.zshrc backup && echo ".zshrc moved in backup"
     [ -e ~/.antigenrc ] && mv ~/.antigenrc backup && echo ".antigenrc moved in backup"
-    [ -e /usr/share/zsh/share/antigen.zsh ] || echo "antigen.zsh not found, don't forget to install it"
+    [ -e /usr/share/zsh/share/antigen.zsh ] || MISSING+=('antigen.zsh')
     $COPY_METHOD $(pwd)/shell/zshrc ~/.zshrc
     $COPY_METHOD $(pwd)/shell/antigenrc ~/.antigenrc
     echo "zshrc installed"
 }
 
 install_emacs() {
-    which emacs >/dev/null || echo "emacs not found, don't forget to install it"
+    which emacs >/dev/null || MISSING+=('emacs')
     [ -e ~/.emacs ] && mv ~/.emacs backup && echo ".emacs moved in backup"
     [ -e ~/.emacs.d ] && mv ~/.emacs.d backup && echo ".emacs.d moved in backup"
     curl -L https://git.io/epre | sh
@@ -44,16 +47,15 @@ install_emacs() {
 }
 
 install_i3() {
-    which i3 >/dev/null || echo "i3 not found, don't forget to install it"
-    [ -e ~/.i3/config ] && mv ~/.i3/config backup/i3config && echo ".i3/config moved in backup"
-    [ -e ~/.config/i3/config ] && mv ~/.config/i3/config backup/i3config2 && echo ".config/i3/config moved in backup"
+    which i3 >/dev/null || MISSING+=('i3')
+    [ -e ~/.i3/config ] && mv ~/.i3/config backup/i3config && echo ".i3/config moved in backup" [ -e ~/.config/i3/config ] && mv ~/.config/i3/config backup/i3config2 && echo ".config/i3/config moved in backup"
     mkdir ~/.config/i3 >/dev/null
     $COPY_METHOD $(pwd)/i3/config ~/.config/i3/config
     echo "i3 conf installed"
 }
 
 install_xresources() {
-    which urxvt >/dev/null || echo "urxvt not found, don't forget to install it"
+    which urxvt >/dev/null || MISSING+=('urxvt')
     [ -e ~/.Xresources ] && mv ~/.Xresources backup && echo ".Xresources moved in backup"
     $COPY_METHOD $(pwd)/shell/Xresources ~/.Xresources
     echo "Xresources installed"
@@ -68,15 +70,15 @@ install_fonts() {
 }
 
 install_polybar() {
-    which polybar >/dev/null || echo "polybar not found, don't forget to install it"
-    [ -e ~/.config/polybar/ ] && mv ~/.config/polybar/* backup
+    which polybar >/dev/null || MISSING+=('polybar')
+    [ -e ~/.config/polybar/ ] && mv ~/.config/polybar/* backup || mkdir ~/.config/polybar
     $COPY_METHOD $(pwd)/polybar/config ~/.config/polybar/config
     $COPY_METHOD $(pwd)/polybar/launch.sh ~/.config/polybar/launch.sh
     echo "Polybar conf installed"
 }
 
 install_redshift() {
-    which redshift >/dev/null || "redshift not found, don't forget to install it"
+    which redshift >/dev/null || MISSING+=('redshift')
     [ -e ~/.config/redshift.conf ] && mv ~/.config/redshift.conf backup/
     $COPY_METHOD $(pwd)/redshift.conf ~/.config/redshift.conf
     echo "Redshift conf installed"
@@ -89,5 +91,6 @@ confirm "Install Xresources ?" && install_xresources
 confirm "Install fonts ?" && install_fonts
 confirm "Install polybar ?" && install_polybar
 confirm "Install redshift conf ?" && install_redshift
+[ -n "$MISSING" ] && echo -e "Don't forget to install : ${CYAN}${MISSING[*]}${RST}"
 
 rmdir backup 2>/dev/null
