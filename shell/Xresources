@@ -9,7 +9,7 @@ Xft.rgba: rgb
 /* URXVT */
 
 !URxvt*font: 			-*-tamzen-medium-*-*-*-16-*-*-*-*-*-*-*
-URxvt*font: 			xft:dina:size=8
+URxvt*font: 			xft:dina:size=10
 !URxvt.letterSpace: 	        -1
 !URxvt*transparent:		true
 !URxvt.font:                    vixft:tewi
@@ -23,74 +23,41 @@ URxvt*termName:    		rxvt-unicode
 Urxvt*buffered:                 false
 URxvt.iso14755: 		false
 URxvt.iso14755_52: 		false
+URxvt.perl-ext-common: resize-font
 
-/* COLORS */
+! special
+*.foreground:   #ffffff
+*.background:   #000000
+*.cursorColor:  #ffffff
 
-*.foreground:   		#e8dfd6
-*.background:   		#000000
- 
-! BLACK
-*.color0:       		#073642
-*.color8:       		#002b36
- 
-! RED
-*.color1:       		#c2454e
-*.color9:       		#ef5847
- 
-! GREEN
-*.color2:       		#7cbf9e
-*.color10:      		#a2d9b1
- 
-! YELLOW
-*.color3:       		#8a7a63
-*.color11:      		#beb090
- 
-! BLUE
-*.color4:       		#2e3340
-*.color12:      		#61778d
- 
-! MAGENTA
-*.color5:       		#ff5879
-*.color13:      		#ff99a1
- 
-! CYAN
-*.color6:       		#44b5b1
-*.color14:      		#9ed9d8
- 
-! WHITE
-*.color7:       		#f2f1b9
-*.color15:      		#f6f6c9
+! black
+*.color0:       #101010
+*.color8:       #404040
 
+! red
+*.color1:       #c2454e
+*.color9:       #ef5847
 
+! green
+*.color2:       #b8d68c
+*.color10:      #a0cf5d
 
-/* OLD XTERM */
+! yellow
+*.color3:       #e1aa5d
+*.color11:      #f39d21
 
-!xterm*faceName: 		gohufont:size=10:antialias=false
-xterm*font: 			7x13
-xterm*loginShell: 		true
-xterm*vt100*geometry: 	80x50
-xterm*saveLines: 		2000
-xterm*charClass: 		33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48
-xterm*termName: 		xterm-color
-xterm*eightBitInput: 	false
-xterm*foreground: 		rgb:a8/a8/a8
-xterm*background: 		rgb:00/00/00
-xterm*color0: 			rgb:00/00/00
-xterm*color1: 			rgb:a8/00/00
-xterm*color2: 			rgb:00/a8/00
-xterm*color3: 			rgb:a8/54/00
-xterm*color4: 			rgb:00/00/a8
-xterm*color5: 			rgb:a8/00/a8
-xterm*color6: 			rgb:00/a8/a8
-xterm*color7: 			rgb:a8/a8/a8
-xterm*color8: 			rgb:54/54/54
-xterm*color9: 			rgb:fc/54/54
-xterm*color10: 			rgb:54/fc/54
-xterm*color11: 			rgb:fc/fc/54
-xterm*color12: 			rgb:54/54/fc
-xterm*color13: 			rgb:fc/54/fc
-xterm*color14: 			rgb:54/fc/fc
-xterm*color15: 			rgb:fc/fc/fc
-xterm*boldMode: 		false
-xterm*colorBDMode: 		true
-xterm*colorBD: 			rgb:fc/fc/fc
+! blue
+*.color4:       #7dc1cf
+*.color12:      #4e9fb1
+
+! magenta
+*.color5:       #9b64fb
+*.color13:      #8542ff
+
+! cyan
+*.color6:       #6d878d
+*.color14:      #42717b
+
+! white
+*.color7:       #dddddd
+*.color15:      #dddddd

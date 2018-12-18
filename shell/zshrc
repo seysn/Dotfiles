@@ -26,6 +26,7 @@ alias wifi='nmcli radio wifi'
 alias ed="emacs --daemon"
 alias e='emacsclient -c'
 alias et='emacsclient -t'
+alias ip='ip -color'
 export VISUAL='vim'
 
 twitch () {
